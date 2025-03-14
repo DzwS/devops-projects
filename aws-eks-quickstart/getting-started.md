@@ -6,11 +6,11 @@
 ```
 
 # Run Amazon CLI
-docker run -it --rm -v ${PWD}:/work -w /work --entrypoint /bin/sh amazon/aws-cli:2.0.17
+docker run -it --rm -v ${PWD}:/work -w /work --entrypoint /bin/sh amazon/aws-cli:2.13.19
 
 cd ./kubernetes/cloud/amazon
 
-yum install jq gzip nano tar git
+yum install jq gzip nano tar git iputils wget
 ```
 
 ## Login to AWS
@@ -65,7 +65,7 @@ aws cloudformation list-stack-resources --stack-name getting-started-eks > stack
 aws eks create-cluster \
 --name getting-started-eks \
 --role-arn $role_arn \
---resources-vpc-config subnetIds=subnet-063efe1fa0c5d4913,subnet-06f91e563755e2077,subnet-0824d16f8536b3681,securityGroupIds=sg-0960d3a116ba912e1,endpointPublicAccess=true,endpointPrivateAccess=false
+--resources-vpc-config subnetIds=subnet-01b77cebc087b5c17,subnet-018f634b6e2636cb1,subnet-0afb8702cee7061fb,securityGroupIds=sg-08ddb8bdeca2d5f3e,endpointPublicAccess=true,endpointPrivateAccess=false
 
 aws eks list-clusters
 aws eks describe-cluster --name getting-started-eks
@@ -76,12 +76,12 @@ aws eks describe-cluster --name getting-started-eks
 
 ```
 
-aws eks update-kubeconfig --name getting-started-eks --region ap-southeast-2
+aws eks update-kubeconfig --name getting-started-eks --region ap-east-1
 
 #grab the config if you want it
 cp ~/.kube/config .
 
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl
 
 ```
@@ -106,12 +106,12 @@ More details on instance types to choose from [here](https://aws.amazon.com/ec2/
 ```
 aws eks create-nodegroup \
 --cluster-name getting-started-eks \
---nodegroup-name test \
+--nodegroup-name test1 \
 --node-role $role_arn \
---subnets subnet-0ec47e6ae964a233f \
+--subnets subnet-01b77cebc087b5c17 \
 --disk-size 200 \
 --scaling-config minSize=1,maxSize=2,desiredSize=1 \
---instance-types t2.small
+--instance-types t3.small
 ```
 
 ## EKS CTL example
