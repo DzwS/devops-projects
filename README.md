@@ -1,5 +1,6 @@
 # Real-World DevOps Projects for practice
 
+<<<<<<< HEAD
 DevOps Real World Projects for Aspiring DevOps Engineers
 
 
@@ -24,3 +25,6 @@ DevOps Real World Projects for Aspiring DevOps Engineers
 - kustomize
 - monitoring
 - AI
+=======
+DevOps Real World Projects for Aspiring DevOps Engineers
+>>>>>>> 10d6cef250ee8fa698de7bc79b0c7efd0b06d128
