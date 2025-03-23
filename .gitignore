@@ -1,9 +1,6 @@
 config
 vpc.yaml
 stack.json
-<<<<<<< HEAD
-ekscctl
-summary/*
-=======
-ekscctl
->>>>>>> 10d6cef250ee8fa698de7bc79b0c7efd0b06d128
+eksctl
+EndToEnd.md
+

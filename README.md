@@ -19,7 +19,7 @@
 ## Real world projects for aspiring devops engineers
 - Rancher
 - AI
-- kafka
+- Kafka
 - Redis
 - Database
 - Nginx
