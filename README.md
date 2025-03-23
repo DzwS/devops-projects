@@ -1,26 +1,25 @@
 # Real-World DevOps Projects for practice
 
-DevOps Real World Projects for Aspiring DevOps Engineers
-
-
 ## Key Pojects with basic
-- linux && networking
-- docker
-- kubernetes
+- linux
+- networking
+- docker && kubernetes
 - cloud platform
 
 
 ## System Design Projects with middleware
-- kafka
-- redis
-- database
-- nginx
+- CI/CD
+- IaC
+- Git
+- Security
+- Config management
+- Monitoring
 
 
 ## Real world projects for aspiring devops engineers
-- jenkins
-- argo cd
-- rancher
-- monitoring
+- Rancher
 - AI
-- git
+- kafka
+- Redis
+- Database
+- Nginx

@@ -1,0 +1,29 @@
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: mycluster
+servers: 1      # 主节点数量
+agents: 2       # 工作节点数量
+kubeAPI:
+  host: "127.0.0.1" # Kubernetes API 的主机地址
+  hostPort: "6550"  # Kubernetes API 在主机上的端口
+ports:
+  - port: 9080:80   # 将主机的 9080 端口映射到集群负载均衡器的 80 端口
+    nodeFilters:
+      - loadbalancer
+  - port: 9443:443  # 将主机的 9443 端口映射到集群负载均衡器的 443 端口
+    nodeFilters:
+      - loadbalancer
+options:
+  k3s:
+    extraArgs:
+      - arg: "--disable=traefik"
+        nodeFilters:
+          - server:*
+
+registries:
+  config: |
+    mirrors:
+      "docker.io":
+        endpoint:
+          - https://docker.1ms.run
