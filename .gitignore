@@ -3,4 +3,5 @@ vpc.yaml
 stack.json
 eksctl
 EndToEnd.md
-
+tasks.md
+*.tgz

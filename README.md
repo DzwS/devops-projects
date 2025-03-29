@@ -1,25 +1,39 @@
 # Real-World DevOps Projects for practice
 
-## Key Pojects with basic
-- linux
-- networking
-- docker && kubernetes
-- cloud platform
+# DEVOPS
+## 观测技术
+- **linux**
+- **network**
+- grafana
+- prometheus
+- shell (awk, grep, sed, top, and so on)
 
-
-## System Design Projects with middleware
-- CI/CD
-- IaC
+## Automation
+- **docker**
+- **k8s**
+- **cloud service**
+- CI/CD (Jenkins, argocd)
 - Git
+- yaml
+
+
+## Administration
+- IaC
+- CaC
+- Storage
+- software (Kafka, Redis, Database, Nginx)
+
+
+# SRE
+## Realiability
+- Implement Redundancy and Failover
 - Security
-- Config management
-- Monitoring
+- System Design
 
+## incident management
+- monitoring
 
-## Real world projects for aspiring devops engineers
-- Rancher
-- AI
-- Kafka
-- Redis
-- Database
-- Nginx
+## SLOs
+
+## Operational efficiency
+
