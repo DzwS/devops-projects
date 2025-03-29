@@ -68,3 +68,5 @@ function install_istio(){
     k3d image import aimvector/service-mesh:playlists-api-1.0.0 --cluster mycluster
     k3d image import aimvector/service-mesh:videos-web-1.0.0 --cluster mycluster
 }
+
+install_argocd
