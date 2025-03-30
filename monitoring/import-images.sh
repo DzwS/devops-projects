@@ -1,17 +1,18 @@
 #!/bin/bash
 
 # 定义变量
-CHART_NAME="grafana/grafana"   # Helm Chart 名称
-RELEASE_NAME="my-grafana"                      # Release 名称
+CHART_NAME="prometheus-community/prometheus"   # Helm Chart 名称
+RELEASE_NAME="my-prometheus"                      # Release 名称
 NAMESPACE="monitoring"                         # 命名空间
 VALUES_FILE="values.yaml"                      # 自定义 values 文件
 PRIVATE_REPO="my-private-repo.com"             # 私有镜像仓库地址
+REPO_NAME='test'
 MANIFEST_FILE="manifest.yaml"                  # Helm 渲染结果文件
 OUTPUT_IMAGES_FILE="images.yaml"               # 提取的镜像列表
 
 # 第一步：使用 helm template 渲染 YAML 文件
 echo "渲染 Helm Chart..."
-helm template "$RELEASE_NAME" "$CHART_NAME" -f "$VALUES_FILE" --namespace "$NAMESPACE" > "$MANIFEST_FILE"
+helm template "$RELEASE_NAME" ./prometheus -f "$VALUES_FILE" --namespace "$NAMESPACE" > "$MANIFEST_FILE"
 if [ $? -ne 0 ]; then
   echo "Helm 渲染失败，请检查 Helm 配置。"
   exit 1
@@ -46,7 +47,7 @@ while IFS= read -r image; do
 
   # 创建新的镜像标签
   image_name=$(echo "$image" | awk -F'/' '{print $3}')
-  new_image="$PRIVATE_REPO/${image_name}"
+  new_image="$PRIVATE_REPO/$REPO_NAME/${image_name}"
   docker tag "$image" "$new_image"
 
   # 推送镜像到私有仓库
