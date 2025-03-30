@@ -1,0 +1,21 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: argocd-endpoints-access
+rules:
+- apiGroups: [""]
+  resources: ["endpoints"]
+  verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: argocd-endpoints-access-binding
+subjects:
+- kind: ServiceAccount
+  name: argocd-application-controller
+  namespace: argo
+roleRef:
+  kind: ClusterRole
+  name: argocd-endpoints-access
+  apiGroup: rbac.authorization.k8s.io

@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: http://192.168.0.106:3000/dzw/docker-development-youtube-series.git
+    repoURL: https://github.com/DzwS/devops-projects.git
     targetRevision: HEAD
-    path: argo/example-app
+    path: cicd/argo/example-app
     directory:
       recurse: true
   destination:
