@@ -1,0 +1,77 @@
+#!groovy
+
+def projectName = ''
+def version = ''
+def workspace = ''
+def config;
+def platForm = ''
+def utils;
+def jenkinsPath="${JENKINS_HOME}/ns-devflow/ci"
+def branchName = env.BRANCH_NAME
+
+pipeline {
+    agent any
+    options {
+        ansiColor('xterm')
+    }
+
+    stages {
+        stage("Initialize") {
+            steps {
+                echo "\033[42m Initializing... \033[0m"
+                script {
+                    workspace = pwd()
+                    config = readYaml file: 'ci/config.yml'
+                    utils = load "${jenkinsPath}/utils_qcc.groovy"
+                    version = readFile "${workspace}/VERSION"
+                    platForm = utils.getPlatform(branchName)
+                    dockerTag = utils.getDockerTag(platForm, version.trim())
+
+                    utils.Init(config)
+                }
+            }
+        }
+
+        stage("Unit Test") {
+            steps {
+                echo "\033[42m Unit Test... \033[0m"
+                script {
+                    if ((platForm == "qa") || (platForm == "intg"))
+                        utils.UnitTest(config, platForm)
+                }
+            }
+        }
+
+        stage("Build") {
+            steps {
+                echo "\033[42m Build... \033[0m"
+                script {
+                    utils.Build(config, platForm, dockerTag, version.trim())
+                }
+            }
+        }
+
+        stage("Deploy") {
+            steps {
+                echo "\033[42m Deploy... \033[0m"
+                script {
+                    if(platForm != "prod")
+                        utils.Deploy(config, platForm, dockerTag, jenkinsPath)
+                }
+                echo "\033[32m deployed successfully. \033[0m"
+            }
+        }
+
+    }
+    post {
+        failure {
+            echo "\033[41m Send E-mail \033[0m"
+            emailext(to: "${config.mail.recipients}",
+                    subject: '${DEFAULT_SUBJECT}',
+                    body: '${DEFAULT_CONTENT}',)
+        }
+        /*success {
+            // if is release will to tag the github
+        }*/
+    }
+}
