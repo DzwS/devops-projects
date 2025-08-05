@@ -1,39 +1,16 @@
 # Real-World DevOps Projects for practice
 
-# DEVOPS
-## 观测技术
-- **linux**
-- **network**
-- grafana
-- prometheus
-- shell (awk, grep, sed, top, and so on)
+## Overview
+- linux (awk, grep, sed, top, and so on)
+- language (shell, python, lua)
+- cicd (jenkins, )
+- containerization (docker, containerd, kubernetes)
+- Iac (terraform)
+- Cloud (vpc, ecs, slb, gateway, )
+- Monitor (prometheus, grafana)
+- network protocol(tcp, udp, http, https, ssh, )
+- security ()
+- git ()
+- cac (ansible)
 
-## Automation
-- **docker**
-- **k8s**
-- **cloud service**
-- CI/CD (Jenkins, argocd)
-- Git
-- yaml
-
-
-## Administration
-- IaC
-- CaC
-- Storage
-- software (Kafka, Redis, Database, Nginx)
-
-
-# SRE
-## Realiability
-- Implement Redundancy and Failover
-- Security
-- System Design
-
-## incident management
-- monitoring
-
-## SLOs
-
-## Operational efficiency
 
