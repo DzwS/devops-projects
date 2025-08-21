@@ -36,7 +36,7 @@ data:
   docker.yaml: ""
   proxmox.yaml: |
     url: https://192.168.5.90:8006
-    username: homepage@pve!homepage-token
+    username: root
     password: {{HOMEPAGE_VAR_PROXMOX_PASSWORD}}
   kubernetes.yaml: |
     mode: cluster
