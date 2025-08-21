@@ -13,3 +13,18 @@ k9s version
 helm repo add argo https://argoproj.github.io/argo-helm
 helm repo update
 helm install argocd argo/argo-cd --namespace argocd --create-namespace -f values.yaml
+
+
+
+# Add the External Secrets Helm repository
+helm repo add external-secrets https://charts.external-secrets.io
+
+# Update Helm repositories
+helm repo update
+
+# Install External Secrets Operator
+helm install external-secrets external-secrets/external-secrets \
+  --namespace external-secrets \
+  --create-namespace \
+  --version 0.15.0 \
+  --set installCRDs=true
