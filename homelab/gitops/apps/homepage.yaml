@@ -22,10 +22,10 @@ data:
     - Developer:
       - Github:
         - abbr: GH
-          href: https://github.com/Piotr1215
+          href: https://github.com/DzwS
       - Homelab Repo:
         - abbr: Repo
-          href: https://github.com/Piotr1215/homelab
+          href: https://github.com/DzwS/devops-projects
     - Documentation:
       - K8s Docs:
         - abbr: K8s
@@ -65,14 +65,14 @@ data:
     - Observability:
       - Prometheus:
           description: Metrics & Monitoring
-          href: http://192.168.178.99:9090
+          href: http://192.168.5.155:9090
           icon: prometheus.svg
           widget:
             type: prometheus
             url: http://kube-prometheus-stack-prometheus.prometheus.svc.cluster.local:9090
       - Grafana:
           description: Visualization & Dashboards
-          href: http://192.168.178.98
+          href: http://192.168.5.156
           icon: grafana.svg
           widget:
             type: grafana
@@ -81,7 +81,7 @@ data:
             password: {{HOMEPAGE_VAR_GRAFANA_PASSWORD}}
       - Loki Logs:
           description: Log Aggregation & Search
-          href: http://192.168.178.98/explore?left=%7B%22datasource%22:%22Loki%22%7D
+          href: http://192.168.5.156/explore?left=%7B%22datasource%22:%22Loki%22%7D
           icon: si-grafana-loki
           showStats: true
           namespace: loki
@@ -163,7 +163,7 @@ data:
     - Services:
       - Vault:
           description: Secrets Management
-          href: http://192.168.178.92:8200
+          href: http://192.168.5.216:8200
           icon: vault.svg
           showStats: true
           namespace: vault
@@ -190,12 +190,12 @@ data:
     - Infrastructure:
       - Proxmox:
           description: Hypervisor Management  
-          href: https://192.168.178.75:8006
+          href: https://192.168.5.90:8006
           icon: proxmox.svg
           showStats: true
           widget:
             type: proxmox
-            url: https://192.168.178.75:8006
+            url: https://192.168.5.90:8006
             username: homepage@pve!homepage-token
             password: {{HOMEPAGE_VAR_PROXMOX_PASSWORD}}
             node: pve
@@ -214,14 +214,14 @@ data:
       - System Info:
           widget:
             type: glances
-            url: http://192.168.178.75:61208
+            url: http://192.168.5.90:61208
             version: 4
             metric: info
             refreshInterval: 60000
       - CPU Usage:
           widget:
             type: glances
-            url: http://192.168.178.75:61208
+            url: http://192.168.5.90:61208
             version: 4
             metric: cpu
             refreshInterval: 5000
@@ -229,14 +229,14 @@ data:
       - Memory Usage:
           widget:
             type: glances
-            url: http://192.168.178.75:61208
+            url: http://192.168.5.90:61208
             version: 4
             metric: memory
             refreshInterval: 5000
       - Disk I/O:
           widget:
             type: glances
-            url: http://192.168.178.75:61208
+            url: http://192.168.5.90:61208
             version: 4
             metric: disk:nvme0n1
             diskUnits: bytes
@@ -244,28 +244,28 @@ data:
       - Network Traffic:
           widget:
             type: glances
-            url: http://192.168.178.75:61208
+            url: http://192.168.5.90:61208
             version: 4
             metric: network:enp87s0
             refreshInterval: 5000
       - Top Processes:
           widget:
             type: glances
-            url: http://192.168.178.75:61208
+            url: http://192.168.5.90:61208
             version: 4
             metric: process
             refreshInterval: 5000
       - CPU Temperature:
           widget:
             type: glances
-            url: http://192.168.178.75:61208
+            url: http://192.168.5.90:61208
             version: 4
             metric: sensor:Package id 0
             refreshInterval: 5000
       - Root Filesystem:
           widget:
             type: glances
-            url: http://192.168.178.75:61208
+            url: http://192.168.5.90:61208
             version: 4
             metric: fs:/
             refreshInterval: 30000
@@ -276,7 +276,7 @@ data:
           showStats: true
           widget:
             type: customapi
-            url: https://192.168.178.75:8006/api2/json/nodes/pve/qemu/101/status/current
+            url: https://192.168.5.90:8006/api2/json/nodes/pve/qemu/101/status/current
             headers:
               Authorization: "PVEAPIToken=homepage@pve!homepage-token={{HOMEPAGE_VAR_PROXMOX_PASSWORD}}"
             mappings:
@@ -294,7 +294,7 @@ data:
           showStats: true
           widget:
             type: customapi
-            url: https://192.168.178.75:8006/api2/json/nodes/pve/qemu/102/status/current
+            url: https://192.168.5.90:8006/api2/json/nodes/pve/qemu/102/status/current
             headers:
               Authorization: "PVEAPIToken=homepage@pve!homepage-token={{HOMEPAGE_VAR_PROXMOX_PASSWORD}}"
             mappings:
@@ -312,7 +312,7 @@ data:
           showStats: true
           widget:
             type: customapi
-            url: https://192.168.178.75:8006/api2/json/nodes/pve/qemu/103/status/current
+            url: https://192.168.5.90:8006/api2/json/nodes/pve/qemu/103/status/current
             headers:
               Authorization: "PVEAPIToken=homepage@pve!homepage-token={{HOMEPAGE_VAR_PROXMOX_PASSWORD}}"
             mappings:
