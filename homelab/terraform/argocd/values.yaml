@@ -22,6 +22,7 @@ configs:
         end
       end
       return hs
+    accounts.admin: apiKey
 
 server:
   service:
