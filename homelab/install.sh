@@ -5,7 +5,8 @@ helm repo add argo https://argoproj.github.io/argo-helm
 helm repo update
 helm install argocd argo/argo-cd --namespace argocd --create-namespace -f terraform/argocd/values.yaml
 
-
+argocd login <192.168.5.151> --username admin --password <> --insecure
+argocd account generate-token --account admin
 
 # Add the External Secrets Helm repository
 helm repo add external-secrets https://charts.external-secrets.io

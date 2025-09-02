@@ -44,12 +44,12 @@ data:
     - Management:
       - ArgoCD:
           description: GitOps Continuous Delivery
-          href: http://192.168.5.152/
+          href: http://192.168.5.151/
           icon: git.svg
           showStats: true
           widget:
             type: argocd
-            url: http://192.168.5.152/
+            url: http://192.168.5.151/
             key: {{HOMEPAGE_VAR_ARGOCD_TOKEN}}
       - Portainer:
           description: Container Management Platform
@@ -72,7 +72,7 @@ data:
             url: http://kube-prometheus-stack-prometheus.prometheus.svc.cluster.local:9090
       - Grafana:
           description: Visualization & Dashboards
-          href: http://192.168.5.156
+          href: http://192.168.5.153
           icon: grafana.svg
           widget:
             type: grafana
@@ -81,7 +81,7 @@ data:
             password: {{HOMEPAGE_VAR_GRAFANA_PASSWORD}}
       - Loki Logs:
           description: Log Aggregation & Search
-          href: http://192.168.5.156/explore?left=%7B%22datasource%22:%22Loki%22%7D
+          href: http://192.168.5.153/explore?left=%7B%22datasource%22:%22Loki%22%7D
           icon: si-grafana-loki
           showStats: true
           namespace: loki
