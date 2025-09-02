@@ -432,8 +432,8 @@ spec:
           image: ghcr.io/gethomepage/homepage:latest
           imagePullPolicy: 
           env:
-            - name: HOMEPAGE_ALLOWED_HOSTS
-              value: "192.168.5.153"
+            # - name: HOMEPAGE_ALLOWED_HOSTS
+            #   value: "192.168.5.153"
             - name: LOG_LEVEL
               value: "debug"
             - name: HOMEPAGE_VAR_PROXMOX_PASSWORD

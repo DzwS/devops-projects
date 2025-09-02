@@ -11,3 +11,14 @@ services:
     cap_add:
       - IPC_LOCK
     command: vault server -dev
+
+  rancher-server:
+    image: rancher/rancher
+    container_name: rancher-server
+    privileged: true
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./volume:/var/lib/rancher
